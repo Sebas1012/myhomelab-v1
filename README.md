@@ -24,7 +24,7 @@ En este caso instalar docker es muy simple y existen 2 maneras de hacerlo:
 - Utilizado la herramienta `orangepi-config` la cual permite instalarlo mediante una interface grafica.
 - Utilizando el comando `sudo apt install docker.io`.
 
-Personlmente  prefiero hacerlo mediante `apt` ya que resulta mas comodo para mi.
+Personalmente  prefiero hacerlo mediante `apt` ya que resulta mas comodo para mi.
 
 ### Servicios usados:
 
@@ -33,3 +33,7 @@ Personlmente  prefiero hacerlo mediante `apt` ya que resulta mas comodo para mi.
 - [Pi-hole](https://pi-hole.net)
 - [Duplicati](https://www.duplicati.com)
 - [Budget Zero](https://github.com/budgetzero/budgetzero)
+
+<p align="center">
+  <b>Hecho con &#10084; por: Sebastián. </b>
+</p>
