@@ -28,11 +28,11 @@ Personalmente  prefiero hacerlo mediante `apt` ya que resulta mas comodo para mi
 
 ### Servicios usados:
 
+- [Homer Dashboard](https://github.com/bastienwirtz/homer)
 - [Portainer](https://www.portainer.io)
 - [Uptime Kuma](https://uptime.kuma.pet)
 - [Pi-hole](https://pi-hole.net)
 - [Duplicati](https://www.duplicati.com)
-- [Budget Zero](https://github.com/budgetzero/budgetzero)
 
 <p align="center">
   <b>Hecho con &#10084; por: Sebastián. </b>
