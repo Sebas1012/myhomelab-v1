@@ -19,12 +19,15 @@ Actualmente mi OrangePI corre el sistema operativo [Debian Bookworm Server 5.10.
 Mi homelab fue pensado para ser un sistema multiproposito, con el fin de ser servidor de multimedia, archivos, apps, etc. Todo corriendo sobre **contenedores docker**.
 
 ### Instalar Docker:
-En este caso instalar docker es muy simple y existen 2 maneras de hacerlo:
+En este caso instalar Docker lo mejor es seguir la documentacion oficial, en mi caso para Debian.
 
-- Utilizado la herramienta `orangepi-config` la cual permite instalarlo mediante una interface grafica.
-- Utilizando el comando `sudo apt install docker.io`.
+- [Install Docker on Debian](https://docs.docker.com/engine/install/debian/)
 
-Personalmente  prefiero hacerlo mediante `apt` ya que resulta mas comodo para mi.
+Al igual, escribi una breve guia que simplifica todo lo que debes hacer para poder instalar Docker en Debian.
+
+- [Guia resumida](https://gist.github.com/Sebas1012/83430da8df4ca4fcc74b0bdd2d559d80)
+
+
 
 ### Servicios usados:
 
@@ -32,7 +35,11 @@ Personalmente  prefiero hacerlo mediante `apt` ya que resulta mas comodo para mi
 - [Uptime Kuma](https://uptime.kuma.pet)
 - [Pi-hole](https://pi-hole.net)
 - [Duplicati](https://www.duplicati.com)
-- [Budget Zero](https://github.com/budgetzero/budgetzero)
+- [Homer](https://github.com/bastienwirtz/homer)
+
+### Guias de interes: ❗
+
+- [Configurar IP estatica con nmtui](http://www.orangepi.org/orangepiwiki/index.php/How_to_set_a_static_IP_address)
 
 <p align="center">
   <b>Hecho con &#10084; por: Sebastián. </b>
