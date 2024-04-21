@@ -36,14 +36,11 @@ Al igual, escribi una breve guia que simplifica todo lo que debes hacer para pod
 - [Uptime Kuma](https://uptime.kuma.pet)
 - [Pi-hole](https://pi-hole.net)
 - [Duplicati](https://www.duplicati.com)
-<<<<<<< HEAD
 - [Homer](https://github.com/bastienwirtz/homer)
 
 ### Guias de interes: ❗
 
 - [Configurar IP estatica con nmtui](http://www.orangepi.org/orangepiwiki/index.php/How_to_set_a_static_IP_address)
-=======
->>>>>>> 01f7370da107d5c3d29a31e9884f402635acb7bf
 
 <p align="center">
   <b>Hecho con &#10084; por: Sebastián. </b>
