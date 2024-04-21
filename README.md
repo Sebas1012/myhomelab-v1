@@ -29,7 +29,7 @@ Al igual, escribi una breve guia que simplifica todo lo que debes hacer para pod
 
 
 
-### Servicios usados:
+### Servicios usados con Docker:
 
 - [Homer Dashboard](https://github.com/bastienwirtz/homer)
 - [Portainer](https://www.portainer.io)
@@ -37,6 +37,10 @@ Al igual, escribi una breve guia que simplifica todo lo que debes hacer para pod
 - [Pi-hole](https://pi-hole.net)
 - [Duplicati](https://www.duplicati.com)
 - [Homer](https://github.com/bastienwirtz/homer)
+
+### Servicios locales:
+
+- [Cockpit](https://cockpit-project.org) 
 
 ### Guias de interes: ❗
 
