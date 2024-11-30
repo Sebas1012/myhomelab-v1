@@ -1,9 +1,23 @@
+name: traefik
 services:
   reverse-proxy:
+    container_name: traefik
     image: traefik:v3.2
+    deploy:
+      resources:
+        reservations:
+          memory: 256M
+    network_mode: bridge
+    restart: unless-stopped
     command: --api.insecure=true --providers.docker
     ports:
-      - "8081:80"
-      - "9090:8080"
+      - target: 80
+        published: "8081"
+        protocol: tcp
+      - target: 8080
+        published: "9090"
+        protocol: tcp
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+x-casaos:
+  icon: https://upload.wikimedia.org/wikipedia/commons/1/1b/Traefik.logo.png
