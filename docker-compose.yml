@@ -1,73 +1,9 @@
-version: '3'
-
 services:
-  homer:
-    container_name: homer
-    image: b4bz/homer:latest
+  reverse-proxy:
+    image: traefik:v3.2
+    command: --api.insecure=true --providers.docker
     ports:
-      - '8080:8080'
-    volumes:
-      - ./docker/homer:/www/assets
-    restart: always
-    user: 0:0 #! Se debe corregir esta linea.
-
-  portainer:
-    container_name: portainer
-    image: portainer/portainer-ce:latest
-    ports:
-      - '9443:9443'
-      - '8000:8000'
+      - "8081:80"
+      - "9090:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - portainer_data:/data
-    restart: always
-
-  uptime-kuma:
-    container_name: uptime-kuma
-    image: louislam/uptime-kuma:1
-    ports:
-      - '3001:3001'
-    volumes:
-      - uptime-kuma:/app/data
-    restart: always
-
-  pihole:
-    container_name: pihole
-    image: pihole/pihole:latest
-    # For DHCP it is recommended to remove these ports and instead add: network_mode: "host"
-    ports:
-      - "53:53/tcp"
-      - "53:53/udp"
-      - "67:67/udp" # Only required if you are using Pi-hole as your DHCP server
-      - "80:80/tcp"
-    environment:
-      TZ: 'America/Bogota'
-      # WEBPASSWORD: 'set a secure password here or it will be random'
-    # Volumes store your data between container upgrades
-    volumes:
-      - './docker/pihole/etc-pihole:/etc/pihole'
-      - './docker/pihole/etc-dnsmasq.d:/etc/dnsmasq.d'
-    #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
-    cap_add:
-      - NET_ADMIN # Required if you are using Pi-hole as your DHCP server, else not needed
-    restart: unless-stopped
-
-  duplicati:
-    container_name: duplicati
-    image: lscr.io/linuxserver/duplicati:latest
-    ports:
-      - 8200:8200
-    volumes:
-      - ./docker/duplicati/config:/config
-      # - /path/to/backups:/backups #TODO: Pendiente por definir.
-      - ./docker:/source
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/Bogota
-    restart: unless-stopped
-
-volumes:
-  portainer_data:
-    external: true
-  uptime-kuma:
