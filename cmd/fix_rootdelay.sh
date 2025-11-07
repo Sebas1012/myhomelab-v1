@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Script para corregir el tiempo de espera de arranque en Armbian
+# Modifica /boot/orangepiEnv.txt para agregar rootdelay
+# Uso: Ejecutar este script, ejecutar sudo update-initramfs -u y finalmente reiniciar el sistema
 
 set -e
 
