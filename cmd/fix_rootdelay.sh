@@ -1,20 +1,25 @@
 #!/bin/bash
 
-# Script para corregir el tiempo de espera de arranque en Armbian
-# Modifica /boot/orangepiEnv.txt para agregar rootdelay
-# Uso: Ejecutar este script, ejecutar sudo update-initramfs -u y finalmente reiniciar el sistema
+# Script para agregar rootdelay en Armbian u Orange Pi OS
+# Detecta automáticamente si debe modificar armbianEnv.txt u orangepiEnv.txt
 
 set -e
 
-FILE="/boot/orangepiEnv.txt"
 DELAY_VALUE="10"
 
-echo "Verificando archivo $FILE ..."
+FILE_ARMBIAN="/boot/armbianEnv.txt"
+FILE_ORANGEPI="/boot/orangepiEnv.txt"
 
-if [ ! -f "$FILE" ]; then
-    echo "No se encontró $FILE"
+if [ -f "$FILE_ARMBIAN" ]; then
+    FILE="$FILE_ARMBIAN"
+elif [ -f "$FILE_ORANGEPI" ]; then
+    FILE="$FILE_ORANGEPI"
+else
+    echo "No se encontró armbianEnv.txt ni orangepiEnv.txt en /boot"
     exit 1
 fi
+
+echo "Usando archivo de configuración: $FILE"
 
 sudo cp "$FILE" "${FILE}.bak"
 echo "Copia de seguridad creada en ${FILE}.bak"
@@ -33,5 +38,7 @@ else
     echo "Línea añadida correctamente."
 fi
 
-echo "Configuración aplicada correctamente"
-echo "Reinicia el sistema con: sudo reboot"
+echo "Configuración aplicada correctamente."
+echo ""
+echo "Si usas Armbian ejecuta:  sudo update-initramfs -u"
+echo "Finalmente reinicia:     sudo reboot"
