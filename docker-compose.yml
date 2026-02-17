@@ -1,23 +1,13 @@
-name: traefik
 services:
-  reverse-proxy:
-    container_name: traefik
-    image: traefik:v3.2
-    deploy:
-      resources:
-        reservations:
-          memory: 256M
-    network_mode: bridge
+  homarr:
+    container_name: homarr
+    image: ghcr.io/homarr-labs/homarr:latest
     restart: unless-stopped
-    command: --api.insecure=true --providers.docker
-    ports:
-      - target: 80
-        published: "8081"
-        protocol: tcp
-      - target: 8080
-        published: "9090"
-        protocol: tcp
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-x-casaos:
-  icon: https://upload.wikimedia.org/wikipedia/commons/1/1b/Traefik.logo.png
+      - ./homarr/appdata:/appdata
+    environment:
+      - SECRET_ENCRYPTION_KEY=54a27d94dc77521a74084891161abf87a42a4b13d013f5475eaeb717c7ee2aed
+    ports:
+      - '7575:7575'
+			
