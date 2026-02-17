@@ -10,4 +10,14 @@ services:
       - SECRET_ENCRYPTION_KEY=54a27d94dc77521a74084891161abf87a42a4b13d013f5475eaeb717c7ee2aed
     ports:
       - '7575:7575'
-			
+  dashdot:
+    container_name: dashdot
+    stdin_open: true
+    tty: true
+    ports:
+        - 80:3001
+    volumes:
+        - /:/mnt/host:ro
+    privileged: true
+    image: mauricenino/dashdot:latest
+    
