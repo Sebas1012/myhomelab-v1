@@ -1,23 +1,13 @@
 services:
-  homarr:
-    container_name: homarr
-    image: ghcr.io/homarr-labs/homarr:latest
-    restart: unless-stopped
+  umbrel:
+    image: dockurr/umbrel
+    container_name: umbrel
+    pid: host
+    ports:
+      - 80:80
     volumes:
+      - ./umbrel:/data
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./homarr/appdata:/appdata
-    environment:
-      - SECRET_ENCRYPTION_KEY=54a27d94dc77521a74084891161abf87a42a4b13d013f5475eaeb717c7ee2aed
-    ports:
-      - '7575:7575'
-  dashdot:
-    container_name: dashdot
-    stdin_open: true
-    tty: true
-    ports:
-        - 80:3001
-    volumes:
-        - /:/mnt/host:ro
-    privileged: true
-    image: mauricenino/dashdot:latest
+    restart: always
+    stop_grace_period: 1m
     
